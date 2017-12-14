@@ -33,7 +33,7 @@ public class NouveauCollaborateurController extends HttpServlet {
 			String numeroSecurite = req.getParameter("numeroSecurite");
 			StringBuffer message = new StringBuffer ("Les champs suivants ne sont pas remplis : ");
 			
-			ArrayList<String> missing = new ArrayList<>();
+			ArrayList<String> missing = new ArrayList<>();   
 			
 			if (nom == null || nom.equals("")){
 				missing.add("nom");
