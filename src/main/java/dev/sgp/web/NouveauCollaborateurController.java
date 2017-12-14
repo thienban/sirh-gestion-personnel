@@ -1,9 +1,12 @@
 package dev.sgp.web;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +31,8 @@ public class NouveauCollaborateurController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			String nom = req.getParameter("nom");
 			String prenom = req.getParameter("prenom");
-			String dateNaissance = req.getParameter("dateNaissance");
+			LocalDate dateNaissance = LocalDate.parse(req.getParameter("dateNaissance"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			//String dateNaissance = req.getParameter("dateNaissance");
 			String adresse = req.getParameter("adresse");
 			String numeroSecurite = req.getParameter("numeroSecurite");
 			StringBuffer message = new StringBuffer ("Les champs suivants ne sont pas remplis : ");
@@ -58,13 +62,40 @@ public class NouveauCollaborateurController extends HttpServlet {
 				}
 				resp.sendError(400, message.toString());
 			} else {
+				//création un collaborateur
+				String matricule = (nom + prenom.charAt(0)).toUpperCase();
+				String email = nom + "." + prenom + "@societe.com";//Todo externaliser 
+				String photo = "yeah";
+				
+				System.out.println(matricule);
+				System.out.println(email);
+				System.out.println(dateNaissance);
+				
+				
+				Collaborateur collaborateur = new Collaborateur ();
+				collaborateur.setNom(nom);
+				collaborateur.setPrenom(prenom);
+				collaborateur.setDate_naissance(dateNaissance);
+				collaborateur.setAdresse(adresse);
+				collaborateur.setNum_secu_sociale(numeroSecurite);
+				collaborateur.setEmailPro(email);
+				collaborateur.setMatricule(matricule);
+				collaborateur.setPhoto(photo);
+				
+				
 				resp.setContentType("text/html");
-				resp.getWriter().write("<h1>Nouveau collaborateurs<h1>");
-				/*resp.setContentType("text/html");
-				resp.getWriter().write("<h1>Edition des collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + nom + "</li>"
-								+ "<li>Titre="  "</li>" + "<li>Nom=" "</li>" + "<li>Prenom=" + prenom
-								+ "</li>" + "</ul>");*/
+				resp.getWriter().write("<h1>Nouveau collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + matricule + "</li>"
+								+ "<li>Nom=" + nom + "</li>" + "<li>Prenom=" + prenom
+								+ "</li>Date de Naissance : " + dateNaissance + "</ul>");
+				//sauvergarder dans la liste
+				collabService.sauvegarderCollaborateur(collaborateur);
+				//redirection lister.jsp
+				resp.sendRedirect(req.getContextPath()+"/collaborateurs/lister");
 			}
+			
+			
+		
+			
 	}
 	
 }

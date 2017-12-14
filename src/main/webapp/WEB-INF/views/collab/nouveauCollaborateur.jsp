@@ -27,7 +27,7 @@
 					</div>
 					<div class="form-group">
 						<label>Date de naissance</label>
-						<input type="text" required name="dateNaissance" class="form-control">
+						<input type="date" required name="dateNaissance" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Adresse</label>

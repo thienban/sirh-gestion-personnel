@@ -15,7 +15,7 @@ import dev.sgp.util.Constantes;
 
 public class ListerCollaborateursController extends HttpServlet {
 
-	// recuperation du service
+	// recuperation du service qui contient la liste des collaborateurs
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 
 	@Override
@@ -23,7 +23,13 @@ public class ListerCollaborateursController extends HttpServlet {
 
 		// utilisation du service
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
-		req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Hugues"));
+		System.out.println(collaborateurs.size());
+		System.out.println(collaborateurs.get(0).getNom());
+		System.out.println(collaborateurs.get(0).getPrenom());
+		req.setAttribute("listeCollaborateur",collaborateurs);
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
+		
+		
+		
 	}
 }
