@@ -13,32 +13,33 @@
 		<h1 class="well">Nouveau collaborateur</h1>
 		<div class="col-lg-12 well">
 		<div class="row">
-				<form>
+				<form method = "post" action="#">
 					<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-6 form-group">
 							<label>Prénom</label>
-							<input type="text" class="form-control">
+							<input type="text" required name="prenom" class="form-control">
 						</div>
 						<div class="col-sm-6 form-group">
 							<label>Nom</label>
-							<input type="text" class="form-control">
+							<input type="text" required name="nom" class="form-control">
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Date de naissance</label>
-						<input type="text" class="form-control">
+						<input type="text" required name="dateNaissance" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Adresse</label>
-						<input type="text" class="form-control">
+						<input type="text" required name="adresse" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Numéro de sécurité social</label>
-						<input type="text" class="form-control"> 
+						<input type="text" required name="numeroSecurite" class="form-control"> 
 					</div>
 					<div>
-						<button type="button" class="btn btn-lg btn-info">Créer</button>
+						<button type="submit" class="btn btn-lg btn-info">Créer</button>
+					</div>
 					</div>
 				</form>
 			</div>

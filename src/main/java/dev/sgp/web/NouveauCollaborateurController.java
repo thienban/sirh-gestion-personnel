@@ -26,25 +26,29 @@ public class NouveauCollaborateurController extends HttpServlet {
 		
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			String matricule = req.getParameter("matricule");
-			String titre = req.getParameter("titre");
 			String nom = req.getParameter("nom");
 			String prenom = req.getParameter("prenom");
-			StringBuffer message = new StringBuffer ("Les paramètres suivants sont incorrects : ");
+			String dateNaissance = req.getParameter("dateNaissance");
+			String adresse = req.getParameter("adresse");
+			String numeroSecurite = req.getParameter("numeroSecurite");
+			StringBuffer message = new StringBuffer ("Les champs suivants ne sont pas remplis : ");
 			
 			ArrayList<String> missing = new ArrayList<>();
 			
-			if (matricule == null || matricule.equals("")){
-				missing.add("matricule");
-			}
-			if (titre == null || titre.equals("")){
-				missing.add("titre");
-			}
 			if (nom == null || nom.equals("")){
 				missing.add("nom");
 			}
 			if (prenom == null || prenom.equals("")){
 				missing.add("prenom");
+			}
+			if (dateNaissance == null || dateNaissance.equals("")){
+				missing.add("dateNaissance");
+			}
+			if ( adresse == null || adresse.equals("")){
+				missing.add("adresse");
+			}
+			if ( numeroSecurite.equals("") || numeroSecurite.length() != 15){
+				missing.add("numeroSecurite");
 			}
 			resp.setContentType("text/html");
 						
@@ -55,10 +59,11 @@ public class NouveauCollaborateurController extends HttpServlet {
 				resp.sendError(400, message.toString());
 			} else {
 				resp.setContentType("text/html");
-				resp.getWriter()
-						.write("<h1>Edition des collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + matricule + "</li>"
-								+ "<li>Titre=" + titre + "</li>" + "<li>Nom=" + nom + "</li>" + "<li>Prenom=" + prenom
-								+ "</li>" + "</ul>");
+				resp.getWriter().write("<h1>Nouveau collaborateurs<h1>");
+				/*resp.setContentType("text/html");
+				resp.getWriter().write("<h1>Edition des collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + nom + "</li>"
+								+ "<li>Titre="  "</li>" + "<li>Nom=" "</li>" + "<li>Prenom=" + prenom
+								+ "</li>" + "</ul>");*/
 			}
 	}
 	
