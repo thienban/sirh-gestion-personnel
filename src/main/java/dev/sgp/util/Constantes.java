@@ -1,8 +1,12 @@
 package dev.sgp.util;
 
+import java.util.ResourceBundle;
+
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
 
 public interface Constantes {
-		// constante a ajouter
-		CollaborateurService COLLAB_SERVICE = new CollaborateurService();
-		}
+	CollaborateurService COLLAB_SERVICE = new CollaborateurService();
+	DepartementService DEPT_SERVICE = new DepartementService();
+	final String SOCIETE = ResourceBundle.getBundle("application").getString("societe");
+}

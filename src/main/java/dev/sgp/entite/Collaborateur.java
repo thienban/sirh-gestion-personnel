@@ -12,12 +12,15 @@ public class Collaborateur {
 	private String num_secu_sociale;
 	private String emailPro;
 	private String photo;
+	private String intitulePoste;
+	private Departement departement;
 	private ZonedDateTime dateHeureCreation;
 	public Boolean actif;
 
 	public Collaborateur() {
 		this.actif = true;
 		this.dateHeureCreation = ZonedDateTime.now();
+		this.photo = "default-avatar.png";
 	}
 
 	public String getMatricule() {

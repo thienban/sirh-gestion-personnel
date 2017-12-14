@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <web-app>
 	<display-name>sgp</display-name>
 	<servlet>
@@ -15,19 +14,20 @@
 
 	<servlet>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
-		<servlet-class>dev.sgp.web.NouveauCollaborateurController</servlet-class>
+		<servlet-class>dev.sgp.web.NouveauCollaborateurController
+		</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/lister</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>EditerCollaborateursController</servlet-name>
-		<url-pattern>/collaborateur/editer</url-pattern>
+		<url-pattern>/collaborateurs/editer</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/nouveau</url-pattern>

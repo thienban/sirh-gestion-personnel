@@ -79,8 +79,6 @@ public class NouveauCollaborateurController extends HttpServlet {
 				collaborateur.setAdresse(adresse);
 				collaborateur.setNum_secu_sociale(numeroSecurite);
 				collaborateur.setEmailPro(email);
-				collaborateur.setMatricule(matricule);
-				collaborateur.setPhoto(photo);
 				
 				
 				resp.setContentType("text/html");
