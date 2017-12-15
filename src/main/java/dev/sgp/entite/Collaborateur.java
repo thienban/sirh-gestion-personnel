@@ -16,6 +16,10 @@ public class Collaborateur {
 	private Departement departement;
 	private ZonedDateTime dateHeureCreation;
 	public Boolean actif;
+	private String phone;
+	private String banque;
+	private String bic;
+	private String iban;
 
 	public Collaborateur() {
 		this.actif = true;
@@ -101,5 +105,57 @@ public class Collaborateur {
 
 	public void setActif(Boolean actif) {
 		this.actif = actif;
+	}
+
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getBanque() {
+		return banque;
+	}
+
+	public void setBanque(String banque) {
+		this.banque = banque;
+	}
+
+	public String getBic() {
+		return bic;
+	}
+
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
+
+	public String getIban() {
+		return iban;
+	}
+
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+
+	public Boolean getActif() {
+		return actif;
 	}
 }

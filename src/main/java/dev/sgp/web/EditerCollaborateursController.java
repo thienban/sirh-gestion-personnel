@@ -14,17 +14,18 @@ public class EditerCollaborateursController extends HttpServlet {
 		// recupere la valeur d'un parametre
 		String matricule = req.getParameter("matricule");
 
-		if (matricule == null || matricule.equals("")) {
+		/*if (matricule == null || matricule.equals("")) {
 			resp.sendError(400, "un matricule est attendu");
 		} else {
 			resp.setContentType("text/html");
 			resp.getWriter().write(
 					"<h1>Edition des collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + matricule + "</li>" + "</ul>");
 		}
+	}*/
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String matricule = req.getParameter("matricule");
+		/*String matricule = req.getParameter("matricule");
 		String titre = req.getParameter("titre");
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
@@ -56,7 +57,9 @@ public class EditerCollaborateursController extends HttpServlet {
 			resp.getWriter()
 					.write("<h1>Edition des collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + matricule + "</li>"
 							+ "<li>Titre=" + titre + "</li>" + "<li>Nom=" + nom + "</li>" + "<li>Prenom=" + prenom
-							+ "</li>" + "</ul>");
+							+ "</li>" + "</ul>");*/
+		resp.sendRedirect(req.getContextPath()+"/collaborateurs/editer");
 		}
-	}
+	
 }
+

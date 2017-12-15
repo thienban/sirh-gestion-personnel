@@ -80,11 +80,6 @@ public class NouveauCollaborateurController extends HttpServlet {
 				collaborateur.setNum_secu_sociale(numeroSecurite);
 				collaborateur.setEmailPro(email);
 				
-				
-				resp.setContentType("text/html");
-				resp.getWriter().write("<h1>Nouveau collaborateurs</h1>" + "<ul>" + "<li>Matricule=" + matricule + "</li>"
-								+ "<li>Nom=" + nom + "</li>" + "<li>Prenom=" + prenom
-								+ "</li>Date de Naissance : " + dateNaissance + "</ul>");
 				//sauvergarder dans la liste
 				collabService.sauvegarderCollaborateur(collaborateur);
 				//redirection lister.jsp
