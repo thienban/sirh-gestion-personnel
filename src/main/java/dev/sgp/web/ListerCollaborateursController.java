@@ -16,12 +16,12 @@ import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
-@WebServlet("/collaborateurs/lister")
+@WebServlet(urlPatterns = { "/collaborateurs/lister" })
 public class ListerCollaborateursController extends HttpServlet {
 
 	// recuperation du service qui contient la liste des collaborateurs
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
-	//liste department
+	// recuperation du service qui contient la liste DES departmentS
 	private DepartementService departService = Constantes.DEPT_SERVICE;
 
 	@Override
@@ -29,13 +29,10 @@ public class ListerCollaborateursController extends HttpServlet {
 
 		// utilisation du service collaborateur
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
-		req.setAttribute("listeCollaborateur",collaborateurs);
-		//service departemnet
-	
-	
+		req.setAttribute("listeCollaborateur", collaborateurs);
+		// service departemnet
+
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
-		
-		
-		
+
 	}
 }
