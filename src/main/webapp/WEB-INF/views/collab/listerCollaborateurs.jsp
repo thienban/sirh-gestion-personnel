@@ -59,13 +59,9 @@
 		<c:forEach var="collab" items="${listeCollaborateur}">
 			<div class="card border-dark mb-3" style="max-width: 20rem;">
 				<div class="card-header">${collab.nom}${collab.prenom}</div>
-				<div class="card-body text-dark row">
-					<div class="col-5">
-						<img class="img-rounded"
-							src="<%=request.getContextPath()%>/image/defaut.jpg"
-							alt="Card image cap">
+				<div class="card-body text-dark">
+						<img class="card-img-top" src="<%=request.getContextPath()%>/image/defaut.jpg" alt="Card image cap">					
 					</div>
-					<div class="col-7">
 						<div class="card-text">
 							<ul class="list-unstyled">
 								<li>Fonction : <strong>Y</strong></li>
@@ -77,7 +73,6 @@
 						<a href="#" class="btn btn-primary">Editer</a>
 					</div>
 				</div>
-			</div>
 		</c:forEach>
 	</div>
 </body>
