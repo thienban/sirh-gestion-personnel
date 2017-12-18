@@ -60,6 +60,4 @@ public class EditerCollaborateursController extends HttpServlet {
 							+ "</li>" + "</ul>");*/
 		resp.sendRedirect(req.getContextPath()+"/collaborateurs/editer");
 		}
-	
 }
-

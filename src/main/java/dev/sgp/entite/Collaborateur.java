@@ -1,9 +1,23 @@
 package dev.sgp.entite;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 public class Collaborateur {
+	public Collaborateur(String nom, String prenom, LocalDate date_naissance, String adresse, String num_secu_sociale,
+			String intitulePoste, Departement departement) {
+		this();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.date_naissance = date_naissance;
+		this.adresse = adresse;
+		this.num_secu_sociale = num_secu_sociale;
+		this.intitulePoste = intitulePoste;
+		this.departement = departement;
+		this.emailPro = nom + "." + prenom + "@societe.com";
+	}
+
 	private String matricule;
 	private String nom;
 	private String prenom;
@@ -21,10 +35,11 @@ public class Collaborateur {
 	private String bic;
 	private String iban;
 
-	public Collaborateur() {
+	private Collaborateur() {
 		this.actif = true;
+		this.matricule = Math.random() * LocalDateTime.now().getNano() + "";
 		this.dateHeureCreation = ZonedDateTime.now();
-		this.photo = "default-avatar.png";
+		this.photo = "images/defaut.jpg";
 	}
 
 	public String getMatricule() {
