@@ -72,7 +72,6 @@
 						</div>
 						<a href="#" class="btn btn-primary">Editer</a>
 					</div>
-				</div>
 		</c:forEach>
 	</div>
 </body>
